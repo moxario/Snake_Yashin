@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="Common/Common.csproj" />
-  <Project Path="Snake_Yashin/Snake_Yashin.csproj" />
+  <Project Path="Common/Common.csproj" Id="c7d80a3f-6bcf-4bff-a446-d83e84c0bfa5" />
+  <Project Path="Snake_Yashin/Snake_Yashin.csproj" Id="9a71ff4a-88c9-4c3b-aa14-ae43a9d372d5" />
 </Solution>

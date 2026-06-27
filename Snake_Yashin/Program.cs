@@ -2,16 +2,12 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Runtime.Remoting.Channels;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Snake_Yashin
 {
@@ -66,7 +62,7 @@ namespace Snake_Yashin
         }
         public static void Receiver()
         {
-            UdpClient receivingUdpClient = new UdpClient();
+            UdpClient receivingUdpClient = new UdpClient(LocalPort);
             IPEndPoint endPoint = null;
             try
             {
