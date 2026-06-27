@@ -110,7 +110,19 @@ namespace Snake_Yashin
 
         private static int AddSnake()
         {
-            throw new NotImplementedException();
+            ViewModelGames viewModelGamesPlayer = new ViewModelGames();
+            viewModelGamesPlayer.SnakesPlayers = new Snakes()
+            {
+                Points = new List<Snakes.Point>(){
+                    new Snakes.Point(30, 10),
+                    new Snakes.Point(20, 10),
+                    new Snakes.Point(10, 10)
+                },
+                direction = Snakes.Direction.Start
+            };
+            viewModelGames.Add(viewModelGamesPlayer);
+            return viewModelGames.FindIndex(x => x == viewModelGamesPlayer);
+
         }
     }
 }
