@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -57,7 +59,7 @@ namespace Snake_Yashin
                 }
             }
         }
-       public static void Receiver()
+        public static void Receiver()
         {
             UdpClient receivingUdpClient = new UdpClient();
             IPEndPoint endPoint = null;
@@ -85,10 +87,10 @@ namespace Snake_Yashin
                         x.Port == User.Port);
                         if (IdPlayer != -1)
                         {
-                            if (dataMessage[0] == "Up" && 
+                            if (dataMessage[0] == "Up" &&
                                 viewModelGames[IdPlayer].SnakesPlayers.direction != Snakes.Direction.Down)
                                 viewModelGames[IdPlayer].SnakesPlayers.direction = Snakes.Direction.Up;
-                            else if(dataMessage[0] == "Down" && 
+                            else if (dataMessage[0] == "Down" &&
                                 viewModelGames[IdPlayer].SnakesPlayers.direction != Snakes.Direction.Up)
                                 viewModelGames[IdPlayer].SnakesPlayers.direction = Snakes.Direction.Down;
                             else if (dataMessage[0] == "Left" &&
@@ -171,9 +173,9 @@ namespace Snake_Yashin
                             Snake.GameOver = true;
                         if (Snake.Points[0].Y <= 0 || Snake.Points[0].Y >= 420)
                             Snake.GameOver = true;
-                        if(Snake.direction != Snakes.Direction.Start)
+                        if (Snake.direction != Snakes.Direction.Start)
                         {
-                            for(int iPoint = 1; iPoint < Snake.Points.Count; iPoint++)
+                            for (int iPoint = 1; iPoint < Snake.Points.Count; iPoint++)
                             {
                                 if (Snake.Points[0].X >= Snake.Points[iPoint].X - 1 && Snake.Points[0].X <= Snake.Points[iPoint].X + 1)
                                 {
@@ -215,10 +217,33 @@ namespace Snake_Yashin
                                 SaveLeaders();
                             }
                         }
-                        Send();
                     }
                 }
+                Send();
             }
+        }
+        public static void SaveLeaders()
+        {
+            string Json = JsonConvert.SerializeObject(Leaders);
+            StreamWriter sw = new StreamWriter("./leaders.txt");
+            sw.WriteLine(Json);
+            sw.Close();
+        }
+        public static void LoadLeaders()
+        {
+            if (File.Exists("./leaders.txt")) {
+                StreamReader sr = new StreamReader("./leaders.txt");
+                string Json = sr.ReadLine();
+                sr.Close();
+                if (!String.IsNullOrEmpty(Json))
+                    {
+                    Leaders = JsonConvert.DeserializeObject<List<Leaders>>(Json);
+                    }
+                else Leaders = new List<Leaders>();
+            }
+            else
+                Leaders = new List<Leaders>();
         }
     }
 }
+
