@@ -24,12 +24,17 @@ namespace Snake_Yashin
         public static int MaxSpeed = 15;
         static void Main(string[] args)
         {
-            foreach (ViewModelUserSettings User in remoteIPAddress)
+            try
             {
-                UdpClient sender = new UdpClient();
-                IPEndPoint endPoint = new IPEndPoint(
-                    IPAddress.Parse(User.IpAddress),
-                    int.Parse(User.Port));
+                Thread thread = new Thread(new ThreadStart(Receiver));
+                thread.Start();
+                Thread threadTimer = new Thread(new ThreadStart(Timer));
+                threadTimer.Start();
+            }
+            catch (Exception exp)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Возникло исключение: " + exp.Message);
             }
         }
         private static void Send()
