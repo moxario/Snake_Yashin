@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Common;
+using SnakeWPF.Pages;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SnakeWPF
 {
@@ -20,9 +12,20 @@ namespace SnakeWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static MainWindow mainWindow;
+        public ViewModelUserSettings viewModelUserSettings = new ViewModelUserSettings();
+        public ViewModelGames viewModelGames = null;
+        public static IPAddress remoteIPAddress = IPAddress.Parse("127.0.0.1");
+        public static int Port = 5001;
+        public Thread tRec;
+        public UdpClient recivingUdpClient;
+        public Home Home = new Home();
+        public Game Game = new Game();
+
         public MainWindow()
         {
             InitializeComponent();
+            mainWindow = this;
         }
     }
 }

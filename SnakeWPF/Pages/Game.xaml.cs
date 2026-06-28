@@ -18,9 +18,9 @@ namespace SnakeWPF.Pages
     /// <summary>
     /// Логика взаимодействия для Games.xaml
     /// </summary>
-    public partial class Games : Page
+    public partial class Game : Page
     {
-        public Games()
+        public Game()
         {
             InitializeComponent();
         }

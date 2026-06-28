@@ -23,5 +23,10 @@ namespace SnakeWPF.Pages
         {
             InitializeComponent();
         }
+
+        private void OpenHome(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
