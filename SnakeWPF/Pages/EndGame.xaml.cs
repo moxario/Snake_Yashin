@@ -17,9 +17,9 @@ namespace SnakeWPF.Pages
     /// <summary>
     /// Логика взаимодействия для EndGames.xaml
     /// </summary>
-    public partial class EndGames : Window
+    public partial class EndGame : Page
     {
-        public EndGames()
+        public EndGame()
         {
             InitializeComponent();
         }
