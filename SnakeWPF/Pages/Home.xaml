@@ -15,7 +15,7 @@
             <Label Content="Ваше имя:" HorizontalAlignment="Left" Margin="42, 97, 0, 0" VerticalAlignment="Top"/>
             <TextBox x:Name="ip" HorizontalAlignment="Left" Height="25" Margin="42, 62, 0, 0" TextWrapping="Wrap" Text="192.168.0.111" VerticalAlignment="Top" Width="155" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBox  x:Name="port"  HorizontalAlignment="Left" Height="25" Margin="202, 62, 0, 0" TextWrapping="Wrap" Text="5000" VerticalAlignment="Top" Width="74" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="name" HorizontalAlignment="Left" Height="25" Margin="42, 118, 0, 0" TextWrapping="Wrap" Text="Ilya" VerticalAlignment="Top" Width="214" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="name" HorizontalAlignment="Center" Height="25" Margin="0,118,0,0" TextWrapping="Wrap" Text="Ilya" VerticalAlignment="Top" Width="234" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <Button Click="StartGame" Content="Game" HorizontalAlignment="Left" Margin="42, 148, 0, 0" VerticalAlignment="Top" Width="234" Height="25"/>
         </Grid>
     </Grid>

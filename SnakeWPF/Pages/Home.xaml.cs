@@ -49,7 +49,7 @@ namespace SnakeWPF.Pages
             MainWindow.mainWindow.viewModelUserSettings.IpAddress = ip.Text;
             MainWindow.mainWindow.viewModelUserSettings.Port = port.Text;
             MainWindow.mainWindow.viewModelUserSettings.Name = name.Text;
-            MainWindow.mainWindow.Send($"/Start|{JsonConvert.SerializeObject(MainWindow.mainWindow.viewModelUserSettings)}");
+            MainWindow.mainWindow.Send($"/start|{JsonConvert.SerializeObject(MainWindow.mainWindow.viewModelUserSettings)}");
         }
     }
 }
