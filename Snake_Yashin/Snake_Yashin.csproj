@@ -58,6 +58,10 @@
       <Project>{c7d80a3f-6bcf-4bff-a446-d83e84c0bfa5}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SnakeWPF\SnakeWPF.csproj">
+      <Project>{66dea524-835e-4716-b47d-e99563f59d87}</Project>
+      <Name>SnakeWPF</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
