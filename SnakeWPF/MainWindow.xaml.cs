@@ -73,6 +73,24 @@ namespace SnakeWPF
                 Debug.WriteLine($"Возникло исключение: {exp.Message}");
             }
         }
+        public void Send(string datagramm)
+        {
+            UdpClient client = new UdpClient();
+            IPEndPoint endPoint = new IPEndPoint(remoteIPAddress, Port);
+            try
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(datagramm);
+                client.Send(bytes, bytes.Length, endPoint);
+            }
+            catch (Exception exp)
+            {
+                Debug.WriteLine($"Возникло исключение: {exp.Message}");
+            }
+            finally
+            {
+                client.Close();
+            }
+        }
         public void OpenPage(Page OpenPage)
         {
             frame.Navigate(OpenPage);
